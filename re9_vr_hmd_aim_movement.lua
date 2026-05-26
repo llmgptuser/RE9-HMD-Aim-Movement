@@ -118,13 +118,21 @@ local function get_pivot_adjustment(yaw_radians, pitch_radians)
             local z = -math.cos(yaw_radians) * pivot_h_radius
             local origin = Vector3f.new(x, y - 0.02, z + 0.27)
             return origin
-        else
+        elseif char == "Leon" then
             local pivot_radius = 0.349
             local pivot_h_radius = (90.0 + pitch_degrees * 0.40) / 90.0 * pivot_radius
             local x = -math.sin(yaw_radians) * pivot_h_radius
             local y = -math.sin(pitch_radians) * pivot_radius * 0.33
             local z = -math.cos(yaw_radians) * pivot_h_radius
             local origin = Vector3f.new(x, y - 0.02, z + 0.32)
+            return origin
+        else
+            local pivot_radius = 0.20
+            local pivot_h_radius = (90.0 + pitch_degrees * (-0.8)) / 90.0 * pivot_radius
+            local x = -math.sin(yaw_radians) * pivot_h_radius
+            local y = -math.sin(pitch_radians) * pivot_radius * 0.2
+            local z = -math.cos(yaw_radians) * pivot_h_radius
+            local origin = Vector3f.new(x, y, z + 0.27)
             return origin
         end
     else
@@ -136,7 +144,7 @@ local function get_pivot_adjustment(yaw_radians, pitch_radians)
             local z = -math.cos(yaw_radians) * pivot_h_radius
             local origin = Vector3f.new(x, y - 0.07, z + 0.1)
             return origin
-        else
+        elseif char == "Leon" then
             local pivot_radius = 0.083
             local pivot_h_radius = (90.0 + pitch_degrees * 3.0) / 90.0 * pivot_radius
             local x = -math.sin(yaw_radians) * pivot_h_radius
@@ -144,6 +152,14 @@ local function get_pivot_adjustment(yaw_radians, pitch_radians)
             local z = -math.cos(yaw_radians) * pivot_h_radius
             local origin = Vector3f.new(x, y - 0.07, z + 0.1)
             return origin
+        else
+            local pivot_radius = 0.098
+            local pivot_h_radius = (90.0 + pitch_degrees * (-0.8)) / 90.0 * pivot_radius
+            local x = -math.sin(yaw_radians) * pivot_h_radius
+            local y = -(math.sin(pitch_radians) - 0 * math.cos(pitch_radians)) * pivot_radius * 0.5
+            local z = -math.cos(yaw_radians) * pivot_h_radius
+            local origin = Vector3f.new(x, y, z + 0.1)
+            return origin          
         end
     end
 end
